@@ -2,4 +2,3 @@ venv/
 watchit/.env
 .idea/
 db.sqlite3
-**/migrations/
