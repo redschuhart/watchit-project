@@ -1,0 +1,30 @@
+
+.testit{
+    color: blueviolet;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.contacts {
+    margin: 0; /* Обнуляем значение отступов */
+    margin-bottom: 4px;
+    padding: 4px; /* Значение полей */
+    height: 30px;
+   }
+.contacts-element {
+    font-weight: 700px;
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    padding: 5px; /* Поля вокруг текста */
+
+   }
+
+
+
+nav{
+    height: 80px;
+    font-size: 30px;
+}
