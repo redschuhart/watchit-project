@@ -21,6 +21,13 @@ class ProductBrand(models.Model):
         return f"{self.brand_name}"
 
 
+class ProductType(models.Model):
+    type_id = models.AutoField(primary_key=True)
+    type_name = models.CharField(blank=False, null=False, max_length=255)
+
+    def __str__(self):
+        return f"{self.type_name}"
+
 class Product(models.Model):
 #TODO add model number and backlight type, watch type field and model for watchtype
     product_id = models.AutoField(primary_key=True)
@@ -41,6 +48,8 @@ class Product(models.Model):
     brand_id = models.ForeignKey(to=ProductBrand, on_delete=models.CASCADE)
     water_resistance = models.IntegerField(blank=False, null=False, validators=[MaxValueValidator(500)])
     backlight = models.BooleanField(blank=False, null=False)
+    backlight_type = models.CharField(blank=False, null=False, max_length=255)
+    type_id = models.ForeignKey(to=ProductType, on_delete=models.CASCADE)
     glass = models.CharField(blank=False, null=False, max_length=255)
     calendar = models.CharField(max_length=255, default=False)
     size = models.CharField(blank=False, null=False, max_length=255)

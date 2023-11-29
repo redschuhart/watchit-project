@@ -14,6 +14,7 @@ def product(request, product_id):
             'new_price': int(int(data.price) * (1 -data.discount / 100))
 
         }
+        print(data.main_image)
         return render(request, template_name='products/product_card.html', context=context)
     else:
         raise Http404

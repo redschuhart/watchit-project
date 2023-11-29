@@ -16,7 +16,7 @@
 <h6 class="card-subtitle">{{ data.sex }}</h6>
 <div class="row">
 <div class="col-lg-5 col-md-5 col-sm-6">
-<div class="white-box text-center"><img src="https://www.bootdey.com/image/430x600/00CED1/000000" class="img-responsive"></div>
+<div class="white-box text-center"><img src="{{ data.main_image.url }}" class="img-responsive" alt="sssss"></div>
 </div>
 <div class="col-lg-7 col-md-7 col-sm-6">
 <h4 class="box-title mt-5">Описание:</h4>
@@ -31,9 +31,7 @@
     {% endif %}
 
 
-<!--{{ price }} ₽-->
-<!--    {% if data.dicsount != 0 %}-->
-<!--    {% endif %}-->
+
 </h2>
 <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart">
 <i class="fa fa-shopping-cart"></i>
@@ -64,6 +62,10 @@
 </tr>
 <tr>
 <td>Тип</td>
+<td>{{ data.type_id }}</td>
+</tr>
+<tr>
+<td>Стиль</td>
 <td>{{ data.category_id }}</td>
 </tr>
 <tr>
@@ -80,7 +82,7 @@
 </tr>
 <tr>
 <td>Глубина погружения</td>
-<td>{{ data.water_resistance }}</td>
+<td>{{ data.water_resistance }} М.</td>
 </tr>
 <tr>
 <td>Подсветка</td>
@@ -90,6 +92,12 @@
     <td>Нет</td>
 {% endif %}
 </tr>
+{% if data.backlight %}
+<tr>
+<td>Тип подсветки</td>
+<td>{{ data.backlight_type }}</td>
+</tr>
+{% endif %}
 <tr>
 <td>Календарь</td>
 <td>{{ data.calendar }}</td>
@@ -98,9 +106,7 @@
 <td>Размеры</td>
 <td>{{ data.size }}</td>
 </tr>
-<tr>
-<td>Model Number</td>
-<td>F01020701-00HT744A06</td>
+
 
 </tbody>
 </table>
