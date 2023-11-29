@@ -4,20 +4,28 @@ from django.core.validators import MaxValueValidator
 
 
 class ProductCategory(models.Model):
-    category_id = models.IntegerField(primary_key=True)
+    category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(blank=False, null=False, max_length=255)
     category_description = models.TextField(blank=None, null=None)
 
+    def __str__(self):
+        return f'{self.category_name}'
+
 
 class ProductBrand(models.Model):
-    brand_id = models.IntegerField(primary_key=True)
+    brand_id = models.AutoField(primary_key=True)
     brand_name = models.CharField(blank=False, null=False, max_length=255)
     brand_description = models.TextField(blank=None, null=None)
 
+    def __str__(self):
+        return f"{self.brand_name}"
+
 
 class Product(models.Model):
-    product_id = models.IntegerField(primary_key=True)
+#TODO add model number and backlight type, watch type field and model for watchtype
+    product_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, unique=True, blank=False, null=False)
+    product_name = models.CharField(blank=False, null=False, max_length=255)
     time_create = models.TimeField(auto_now_add=True)
     time_update = models.TimeField(auto_now_add=True)
     quantity = models.PositiveIntegerField(blank=False, null=False, default=0)
@@ -34,11 +42,12 @@ class Product(models.Model):
     water_resistance = models.IntegerField(blank=False, null=False, validators=[MaxValueValidator(500)])
     backlight = models.BooleanField(blank=False, null=False)
     glass = models.CharField(blank=False, null=False, max_length=255)
-    calendar_day = models.BooleanField(blank=False, null=False)
-    calendar_date = models.BooleanField(blank=False, null=False)
-    calendar_full = models.BooleanField(blank=False, null=False)
+    calendar = models.CharField(max_length=255, default=False)
     size = models.CharField(blank=False, null=False, max_length=255)
+    sex = models.CharField(blank=False, null=False, max_length=255, default='Мужские')
 
+    def __str__(self):
+        return f'{self.product_name}'
 
 
 
