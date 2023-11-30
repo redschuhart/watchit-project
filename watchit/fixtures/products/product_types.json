@@ -1,0 +1,1 @@
+[{"model": "products.producttype", "pk": 1, "fields": {"type_name": "Электронные"}}, {"model": "products.producttype", "pk": 2, "fields": {"type_name": "Механические с автоподзаводом"}}]
