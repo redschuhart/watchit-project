@@ -2,24 +2,15 @@ h3 {
     margin-left: 36px;
 }
 
-.footer-links{
-    color: white;
-}
-
-.footer-items{
-    font-family: Roboto;
-    background-color: #212529;
-    color: white;
-    font-size: 20px;
-}
 
 #spec{
     text-align: center;
 }
 
 .specs-table{
-    font-size: 23px;
+    font-size: 20px;
     font-family: Roboto;
+    font-weight: 800;
 
 }
 
@@ -53,6 +44,9 @@ body{
     background-clip: border-box;
     border: 0 solid transparent;
     border-radius: 0;
+}
+.card-title{
+    margin-top: 65px;
 }
 .card .card-subtitle {
     font-weight: 300;
