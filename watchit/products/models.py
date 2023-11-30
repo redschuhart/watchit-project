@@ -29,10 +29,10 @@ class ProductType(models.Model):
         return f"{self.type_name}"
 
 class Product(models.Model):
-#TODO add model number and backlight type, watch type field and model for watchtype
     product_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, unique=True, blank=False, null=False)
-    product_name = models.CharField(blank=False, null=False, max_length=255)
+    product_name = models.CharField(blank=False, null=False, max_length=255, unique=True)
+    product_slug = models.CharField(max_length=255, null=False, blank=False)
     time_create = models.TimeField(auto_now_add=True)
     time_update = models.TimeField(auto_now_add=True)
     quantity = models.PositiveIntegerField(blank=False, null=False, default=0)

@@ -2,13 +2,34 @@ h3 {
     margin-left: 36px;
 }
 
+.footer-links{
+    color: white;
+}
+
+.footer-items{
+    font-family: Roboto;
+    background-color: #212529;
+    color: white;
+    font-size: 20px;
+}
+
+#spec{
+    text-align: center;
+}
+
+.specs-table{
+    font-size: 23px;
+    font-family: Roboto;
+
+}
+
 h6 {
     margin-left: 36px;
 }
 
 body{
     background-color: #edf1f5;
-    margin-top:20px;
+    font-family: Roboto;
 }
 
 .old-price{

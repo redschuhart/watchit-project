@@ -5,8 +5,9 @@ from django.http import Http404
 # Create your views here.
 
 
-def product(request, product_id):
-    data = Product.objects.filter(product_id=product_id).first()
+def product(request, product_slug):
+    print(product_slug)
+    data = Product.objects.filter(product_slug=product_slug).first()
     if data:
         context = {
             'data': data,
@@ -19,5 +20,7 @@ def product(request, product_id):
     else:
         raise Http404
 
+
 def test(request):
+    # raise Http404
     return render(request, template_name='products/index.html')
