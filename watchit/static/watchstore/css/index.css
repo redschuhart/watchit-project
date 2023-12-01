@@ -1,0 +1,28 @@
+#carusel-main {
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+.c-item{
+    height: 820px;
+
+
+}
+
+.c-img{
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+
+}
+
+.h1-text{
+    font-family: Roboto;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.p-text{
+    font-size: 20px;
+}
+

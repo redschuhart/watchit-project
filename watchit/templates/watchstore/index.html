@@ -1,10 +1,43 @@
 {% extends "watchstore/base.html" %}
 {% load static %}
 
+{% block styles %}
+<link href="{% static 'watchstore/css/index.css' %}" rel="stylesheet">
+{% endblock %}
 {% block title %}
 <title>Главная страница</title>
 {% endblock %}
 {% block content %}
+<div id="carusel-main" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active c-item">
+      <img src="{% static 'watchstore/img/6.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+        <h1 class="display-1 fw-bolder text-capitalize h1-text">Продающий текст</h1>
+        <p class="img-secriprions p-text">Крутой слоган</p>
+        <button class="btn btn-primary my-button px-4 py-2 fs-5 mt-2">Каталог</button>
+      </div>
+    </div>
+    <div class="carousel-item c-item">
+      <img src="{% static 'watchstore/img/4.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+        <h1 class="display-1 fw-bolder text-capitalize h1-text">Продающий текст</h1>
+        <p class="img-secriprions p-text">Крутой слоган</p>
+        <button class="btn btn-primary px-4 py-2 fs-5 mt-2">Каталог</button>
+      </div>
+    </div>
+
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carusel-main" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carusel-main" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
 
 {% endblock %}
 
