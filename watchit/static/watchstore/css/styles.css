@@ -1,4 +1,12 @@
 
+
+.main{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -8,31 +16,29 @@ img {
     color: white;
 }
 
+
 .footer-items{
     font-family: Roboto;
     background-color: #212529;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+/*    overflow: hidden;*/
+/*    display: flex;*/
+    margin-top: auto;
+
+}
+
+#index-section{
+    background-color: #eee;
 }
 
 
-.contacts {
-    margin: 0; /* Обнуляем значение отступов */
-    margin-bottom: 4px;
-    padding: 4px; /* Значение полей */
-    height: 30px;
-   }
-.contacts-element {
-    font-weight: 700px;
-    display: inline; /* Отображать как строчный элемент */
-    margin-right: 5px; /* Отступ слева */
-    padding: 5px; /* Поля вокруг текста */
+.content-block{
 
-   }
-
-
+}
 
 nav{
-    height: 80px;
-    font-size: 30px;
+    height: 60px;
+    font-size: 24px;
+
 }
