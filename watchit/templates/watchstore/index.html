@@ -11,19 +11,27 @@
 <div id="carusel-main" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active c-item">
-      <img src="{% static 'watchstore/img/6.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <img src="{% static 'watchstore/img/seiko.jpg' %}" class="d-block w-100 c-img" alt="...">
       <div class="carousel-caption top-0 mt-4 d-none d-md-block">
         <h1 class="display-1 fw-bolder text-capitalize h1-text">Продающий текст</h1>
         <p class="img-secriprions p-text">Крутой слоган</p>
-        <button class="btn btn-primary my-button px-4 py-2 fs-5 mt-2">Каталог</button>
+        <button class="btn btn-primary my-button px-4 py-2 fs-5 mt-2" onclick="window.location.href='{% url 'catalog' %}'">Каталог</button>
       </div>
     </div>
     <div class="carousel-item c-item">
-      <img src="{% static 'watchstore/img/4.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <img src="{% static 'watchstore/img/rolex.jpg' %}" class="d-block w-100 c-img" alt="...">
       <div class="carousel-caption top-0 mt-4 d-none d-md-block">
         <h1 class="display-1 fw-bolder text-capitalize h1-text">Продающий текст</h1>
         <p class="img-secriprions p-text">Крутой слоган</p>
-        <button class="btn btn-primary px-4 py-2 fs-5 mt-2">Каталог</button>
+        <button class="btn btn-primary my-button px-4 py-2 fs-5 mt-2" onclick="window.location.href='{% url 'catalog' %}'">Каталог</button>
+      </div>
+    </div>
+    <div class="carousel-item c-item">
+      <img src="{% static 'watchstore/img/plane.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+        <h1 class="display-1 fw-bolder text-capitalize h1-text">Продающий текст</h1>
+        <p class="img-secriprions p-text">Крутой слоган</p>
+        <button class="btn btn-primary my-button px-4 py-2 fs-5 mt-2" onclick="window.location.href='{% url 'catalog' %}'">Каталог</button>
       </div>
     </div>
 

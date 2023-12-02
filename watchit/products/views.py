@@ -21,6 +21,17 @@ def product(request, product_slug):
         raise Http404
 
 
-def test(request):
-    # raise Http404
-    return render(request, template_name='products/index.html')
+def product_plug(request):
+    raise Http404
+
+
+def catalog(request):
+    products = Product.objects.all()
+    if not products:
+        raise Http404
+    context = {
+        'title': 'catalog',
+        'products': products
+
+    }
+    return render(request, template_name='products/catalog.html', context=context)

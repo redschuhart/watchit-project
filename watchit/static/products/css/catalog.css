@@ -1,0 +1,12 @@
+.my-img{
+    height: 400px;
+    object-fit: contain;
+}
+
+.cards-container{
+    margin-top: 50px;
+}
+
+#my-footer{
+    width: 100%;
+}
