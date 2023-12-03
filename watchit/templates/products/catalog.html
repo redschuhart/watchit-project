@@ -63,7 +63,7 @@
                             <h4 class="card-title">
                                 <a href="{% url 'product' %}{{ product.product_slug }}">{{ product.product_name }}</a>
                             </h4>
-                            <h5>{{ product.price }} руб.</h5>
+                            <h5>{{ product.price|floatformat:"0" }} ₽</h5>
                             <p class="card-text">{{ product.short_description }}</p>
                         </div>
                         <div class="card-footer text-center">

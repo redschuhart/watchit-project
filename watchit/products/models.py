@@ -21,7 +21,6 @@ class ProductBrand(models.Model):
     brand_description = models.TextField(blank=None, null=None,
                                          verbose_name='Описание бренда')
 
-
     def __str__(self):
         return f"{self.brand_name}"
 
@@ -33,6 +32,7 @@ class ProductType(models.Model):
 
     def __str__(self):
         return f"{self.type_name}"
+
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
