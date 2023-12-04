@@ -7,6 +7,8 @@ class ProductCategory(models.Model):
     category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(blank=False, null=False, max_length=255,
                                      verbose_name='Название категории')
+    category_slug = models.CharField(max_length=255, blank=False, null=False,
+                                     verbose_name='Слаг категории')
     category_description = models.TextField(blank=None, null=None,
                                             verbose_name='Описание категории')
 

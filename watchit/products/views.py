@@ -25,13 +25,23 @@ def product_plug(request):
     raise Http404
 
 
-def catalog(request):
-    products = Product.objects.all()
-    if not products:
-        raise Http404
+def catalog(request, category_slug=None):
+    categories = ProductCategory.objects.all()
+    if not category_slug:
+        products = Product.objects.all()
+    else:
+        products = Product.objects.filter(category_id__category_slug=category_slug)
     context = {
         'title': 'catalog',
-        'products': products
+        'products': products,
+        'categories': categories
 
     }
     return render(request, template_name='products/catalog.html', context=context)
+
+
+def category(request, category_slug):
+    context = {
+
+    }
+    return render(request, template_name='products/category.html', context=context)
