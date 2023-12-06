@@ -1,0 +1,32 @@
+body{
+    overflow: hidden;
+    background-color: black;
+}
+
+.my-img{
+  justify-content: center;
+/*  display: flex;*/
+  align-items: center;
+}
+
+.btn-color{
+  background-color: black;
+  color: #fff;
+
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}

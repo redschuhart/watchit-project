@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from products.models import Product, ProductBrand, ProductCategory
 from django.http import Http404
 # Create your views here.
@@ -21,10 +20,6 @@ def product(request, product_slug):
         raise Http404
 
 
-def product_plug(request):
-    raise Http404
-
-
 def catalog(request, category_slug=None):
     categories = ProductCategory.objects.all()
     if not category_slug:
@@ -32,16 +27,9 @@ def catalog(request, category_slug=None):
     else:
         products = Product.objects.filter(category_id__category_slug=category_slug)
     context = {
-        'title': 'catalog',
+        'title': 'Каталог',
         'products': products,
         'categories': categories
 
     }
     return render(request, template_name='products/catalog.html', context=context)
-
-
-def category(request, category_slug):
-    context = {
-
-    }
-    return render(request, template_name='products/category.html', context=context)

@@ -23,7 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('watchstore.urls')),
-    path('product/', include('products.urls'))
+    path('product/', include('products.urls')),
+    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

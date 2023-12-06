@@ -17,7 +17,7 @@
             <h1 class="my-4">Категории</h1>
             <div class="list-group">
                 {% for category in categories %}
-                <a href="{% url 'catalog' %}{{category.category_slug}}/" class="list-group-item">{{category.category_name}}</a>
+                <a href="{% url 'category' category_slug=category.category_slug %}" class="list-group-item">{{category.category_name}}</a>
                 {% endfor %}
             </div>
 
@@ -52,14 +52,14 @@
                 {% for product in products %}
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="{% url 'product' %}{{ product.product_slug }}">
+                        <a href="{% url 'product_card' product_slug=product.product_slug %}">
                             <img class="card-img-top my-img"
                                  src="{{ product.main_image.url }}"
                                  alt="">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="{% url 'product' %}{{ product.product_slug }}">{{ product.product_name }}</a>
+                                <a href="{% url 'product_card' product_slug=product.product_slug %}">{{ product.product_name }}</a>
                             </h4>
                             <h5>{{ product.price|floatformat:"0" }} ₽</h5>
                             <p class="card-text">{{ product.short_description }}</p>
