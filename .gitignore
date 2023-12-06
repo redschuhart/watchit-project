@@ -2,6 +2,5 @@ venv/
 watchit/.env
 .idea/
 db.sqlite3
-_migrations/*
-!_migrations/__init__.py
+!migrations/__init__.py
 customers/
