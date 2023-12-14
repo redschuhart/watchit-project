@@ -58,7 +58,7 @@ class Product(models.Model):
                                            validators=[MaxValueValidator(50, message='Скидка не может быть больше 100%')],
                                            verbose_name='Размер скидки в %'
     )
-    price = models.DecimalField(blank=False, null=False, max_digits=7,
+    price = models.DecimalField(blank=False, null=False, max_digits=12,
                                 decimal_places=2, verbose_name='Цена'
                                 )
     description = models.TextField(blank=False, null=False, verbose_name='Описание товара')
