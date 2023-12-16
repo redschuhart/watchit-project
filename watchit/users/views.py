@@ -1,9 +1,12 @@
 from django.shortcuts import render, HttpResponse, Http404, redirect
 from users.forms import SigninForm, RegisterForm
 from django.contrib import auth
+
+
 # Create your views here.
 
 
+# TODO register form
 def register(request):
     if request.method == 'POST':
         post_data = request.POST
@@ -12,6 +15,7 @@ def register(request):
         return render(request, template_name='users/register.html')
 
 
+# TODO post data verification
 def signin(request):
     if request.method == 'POST':
         post_data = request.POST
@@ -26,5 +30,3 @@ def signin(request):
         }
         print(request.user.is_authenticated)
         return render(request, template_name='users/signin.html', context=context)
-
-
