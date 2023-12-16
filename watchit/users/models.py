@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 from users.field_validators import phone_validator
 
+
 class User(AbstractUser):
     phone_number = models.CharField(max_length=12, validators=[phone_validator],
                                      verbose_name='Номер телефона')

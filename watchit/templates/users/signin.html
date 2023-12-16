@@ -11,8 +11,9 @@
                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Авторизация</h3>
                     </div>
                     <div class="card-body">
+
                         <form action="{% url 'signin' %}" method="POST">
-                        {% csrf_token %}
+                            {% csrf_token %}
 
                             <div class="form-group">
                                 <label class="small mb-1" for="username">Имя пользователя</label>
