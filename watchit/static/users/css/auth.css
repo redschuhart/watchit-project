@@ -58,6 +58,12 @@ html {
     margin-right: auto;
     width: 100%;
 }
+
+.error-msg{
+    color: red;
+    font-size: 20px;
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
 }

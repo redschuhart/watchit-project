@@ -31,10 +31,14 @@
                     </div>
                     <div class="card-footer text-center">
                         <div class="small"><a href="{% url 'register' %}">Еще нет аккаунта? Зарегистрируйся!</a></div>
+                        <strong><p class="error-msg">{{ wrong_data }}</p></strong>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
 {% endblock %}
