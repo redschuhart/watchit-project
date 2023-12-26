@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('watchstore.urls')),
     path('product/', include('products.urls')),
     path('users/', include('users.urls')),
+    path('cart/', include('cart.urls'))
 ]
 
 if settings.DEBUG:
