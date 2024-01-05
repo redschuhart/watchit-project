@@ -5,7 +5,6 @@ from django.http import Http404
 
 
 def product(request, product_slug):
-    print(product_slug)
     data = Product.objects.filter(product_slug=product_slug).first()
     if data:
         context = {
@@ -22,10 +21,16 @@ def product(request, product_slug):
 
 def catalog(request, category_slug=None):
     categories = ProductCategory.objects.all()
-    if not category_slug:
-        products = Product.objects.all()
-    else:
-        products = Product.objects.filter(category_id__category_slug=category_slug)
+    products = Product.objects.all() if not category_slug else (
+        Product.objects.filter(category_id__category_slug=category_slug))
+
+    order_options = {
+        'ASC': 'price',
+        'DESC': '-price'
+    }
+    order_by = order_options.get(request.GET.get('ORDER-BY'))
+    if order_by:
+        products = products.order_by(order_by)
     context = {
         'title': 'Каталог',
         'products': products,

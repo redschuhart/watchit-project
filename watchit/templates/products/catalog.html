@@ -19,9 +19,19 @@
                 {% for category in categories %}
                 <a href="{% url 'category' category_slug=category.category_slug %}" class="list-group-item">{{category.category_name}}</a>
                 {% endfor %}
+            <div class="list-group">
+                  <h2 class="my-4">Упорядочить по</h2>
+                  <a href="?ORDER-BY=ASC" class="list-group-item">Возрастанию цены</a>
+                  <a href="?ORDER-BY=DESC" class="list-group-item">Убыванию цены</a>
             </div>
 
+            </div>
+
+            
+
+
         </div>
+
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
