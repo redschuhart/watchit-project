@@ -4,3 +4,4 @@ watchit/.env
 db.sqlite3
 !migrations/__init__.py
 customers/
+*.pyc

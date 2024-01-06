@@ -1,0 +1,76 @@
+{% extends 'watchstore/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'users/css/profile.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+{% block content %}
+<div class="container-xl px-4 mt-4">
+    
+    <div class="row main-div">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header" id="data-desc">Фото профиля</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile mb-2" src="{% static 'users/img/profile.jpg' %}" alt="">
+                    <div class="small font-italic text-muted mb-4">Изменить фото профиля</div>
+                    <button class="btn btn-primary myb-button" type="button">Загрузить</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header" id="data-desc">Ваши данные</div>
+                <div class="card-body">
+                    <form>
+                        
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1">Имя</label>
+                                <h3 class="user-info">{{ user.first_name }}</h3>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1">Фамилия</label>
+                                <h3 class="user-info">{{ user.last_name }}</h3>
+
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                             <div class="mb-3">
+                            <label class="small mb-1">Адрес достваки</label>
+                            <h3 class="user-info">{{ user.delivery_address }}</h3>
+                        </div>
+                        </div>
+                        
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1">Номер телефона</label>
+                                <h3 class="user-info">{{ user.phone_number }}</h3>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1">Электронная почта</label>
+                                <h3 class="user-info">{{ user.email }}</h3>
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        <div class="test">
+                        <button class="btn btn-primary myb-button" type="button">Изменить данные</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

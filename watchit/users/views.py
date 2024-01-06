@@ -1,12 +1,17 @@
 from django.shortcuts import render, HttpResponse, Http404, redirect
-from users.forms import SigninForm, RegisterForm
+from users.forms import SigninForm, RegisterForm, User
 from django.contrib import auth
 from users.errors_generator import registration_err
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect(to='home')
+
     form = RegisterForm()
     context = {
         'title': 'Регистрация',
@@ -27,6 +32,8 @@ def register(request):
 
 
 def signin(request):
+    if request.user.is_authenticated:
+        return redirect(to='home')
     context = {
         'form': SigninForm(),
         'title': 'Войти'
@@ -41,3 +48,20 @@ def signin(request):
         context['wrong_data'] = 'Не правильный логин или пароль'
 
     return render(request, template_name='users/signin.html', context=context)
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect(to='home')
+
+
+@login_required
+def profile(request):
+    user_data = User.objects.get(username=request.user)
+    context = {
+        'title': 'Профиль',
+        'user': user_data
+
+    }
+
+    return render(request, template_name='users/profile.html', context=context)
