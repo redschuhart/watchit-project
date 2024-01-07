@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from users.models import User
 
 
@@ -9,7 +9,7 @@ class SigninForm(AuthenticationForm):
             'class': 'form-control py-4',
             'placeholder': 'Введите имя пользователя',
             'type': 'texts',
-            'id': 'username'
+            'id': 'username',
         }
     ))
     password = forms.CharField(widget=forms.TextInput(
@@ -86,3 +86,52 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'password1', 'password2', 'email',
                   'first_name', 'last_name',)
+
+
+class ChangeUserForm(UserChangeForm):
+    first_name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control py-4',
+            'type': 'text',
+            'id': 'inputFirstName',
+        }
+    ))
+    last_name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control py-4',
+            'type': 'text',
+        }
+    ))
+
+
+    phone_number = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={
+            'class': 'form-control py-4',
+            'type': 'text',
+        }
+    ))
+    delivery_address = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={
+            'class': 'form-control py-4',
+            'type': 'text',
+        }
+    ))
+
+    # password1 = forms.CharField(widget=forms.PasswordInput(
+    #     attrs={
+    #         'class': 'form-control py-4',
+    #         'placeholder': 'Введите пароль',
+    #         'type': 'password',
+    #     }
+    # ))
+    #
+    # password2 = forms.CharField(widget=forms.PasswordInput(
+    #     attrs={
+    #         'class': 'form-control py-4',
+    #         'placeholder': 'Подтвердите пароль',
+    #         'type': 'password',
+    #     }
+    # ))
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'phone_number', 'delivery_address')

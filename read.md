@@ -1,5 +1,5 @@
 # 1. Install requirements  
-* pip install -r requirements.txt  
+* pip install -r requirements.txt
 
 # 2. Create .env file in the SAME directory with manage.py  
 

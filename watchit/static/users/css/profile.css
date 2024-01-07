@@ -1,5 +1,5 @@
 body{margin-top:20px;
-background-color:#f2f6fc;
+background-color:#69707A;
 color:#69707a;
 overflow: hidden;
 }
@@ -12,7 +12,7 @@ overflow: hidden;
     height: 10rem;
 }
 
-#data-desc{
+.data-desc{
     text-align: center;
 }
 .test{

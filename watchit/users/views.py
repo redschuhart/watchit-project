@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, Http404, redirect
-from users.forms import SigninForm, RegisterForm, User
+from users.forms import SigninForm, RegisterForm, ChangeUserForm
+from users.models import User
 from django.contrib import auth
 from users.errors_generator import registration_err
 from django.contrib.auth.decorators import login_required
@@ -65,3 +66,23 @@ def profile(request):
     }
 
     return render(request, template_name='users/profile.html', context=context)
+
+
+@login_required
+def change_profile(request):
+    context = {
+        'title': 'Изменить данные',
+    }
+
+    if request.method == 'POST':
+        form = ChangeUserForm(data=request.POST, instance=request.user)
+        print(form.changed_data)
+        if form.is_valid():
+            form.save()
+            return redirect(to='profile')
+        else:
+            print('Not valid')
+            context['errors'] = registration_err(request.POST)
+    form = ChangeUserForm(instance=request.user)
+    context['form'] = form
+    return render(request, template_name='users/change_info.html', context=context)

@@ -1,0 +1,90 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Какие данные вы хотите изменить?</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'change_info' %}" method="POST">
+                        {% csrf_token %}
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="{{ form.first_name.id_for_label }}">Имя</label>
+                                        {{ form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                                <div class="form-row">
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.phone_number.id_for_label }}">Номер телефона</label>
+                                    {{ form.phone_number }}
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                    <label class="small mb-1" for="{{ form.delivery_address.id_for_label }}">Адрес доставки</label>
+                                    {{ form.delivery_address }}
+                                </div>
+                                </div>
+                                </div>
+
+
+<!--                                   <div class="form-row">-->
+<!--                                            <div class="col-md-6">-->
+<!--                                               <div class="form-group">-->
+<!--                                        <label class="small mb-1" for="{{ form.password1.id_for_label }}">Пароль</label>-->
+<!--                                        {{ form.password1 }}-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-6">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="small mb-1" for="{{ form.password2.id_for_label }}">Подтверждение-->
+<!--                                            пароля</label>-->
+<!--                                        {{ form.password2 }}-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                </div>-->
+
+
+                            <div class="form-group mt-4 mb-0">
+                                <input class="btn btn-primary btn-block" type="submit" value="Внести изменения">
+                            </div>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        {% if errors %}
+                        {% for error in errors %}
+                        <p class="error-msg">{{ error }}</p>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
