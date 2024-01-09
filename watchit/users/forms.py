@@ -103,7 +103,6 @@ class ChangeUserForm(UserChangeForm):
         }
     ))
 
-
     phone_number = forms.CharField(required=False, widget=forms.TextInput(
         attrs={
             'class': 'form-control py-4',
@@ -117,21 +116,6 @@ class ChangeUserForm(UserChangeForm):
         }
     ))
 
-    # password1 = forms.CharField(widget=forms.PasswordInput(
-    #     attrs={
-    #         'class': 'form-control py-4',
-    #         'placeholder': 'Введите пароль',
-    #         'type': 'password',
-    #     }
-    # ))
-    #
-    # password2 = forms.CharField(widget=forms.PasswordInput(
-    #     attrs={
-    #         'class': 'form-control py-4',
-    #         'placeholder': 'Подтвердите пароль',
-    #         'type': 'password',
-    #     }
-    # ))
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'phone_number', 'delivery_address')

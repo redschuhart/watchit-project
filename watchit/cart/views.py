@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from cart.forms import UserCartForm
+from cart.models import ShoppingCart
+from products.models import Product
 
 
 # Create your views here.
@@ -9,3 +12,20 @@ def open_cart(request):
         'title': 'Корзина'
     }
     return render(request, template_name='cart/cart.html')
+
+
+@login_required
+def add_product(request):
+    user_id = request.user.id
+    product_id = request.POST.get('product_id')
+    if request.method == 'POST':
+        form = UserCartForm(data={
+            'user_id': user_id,
+            'product_id': product_id
+        })
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+    raise Http404
