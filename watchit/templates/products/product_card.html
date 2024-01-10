@@ -35,7 +35,6 @@
     <form action="{% url 'addproduct' %}" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{ data.product_id }}" name="product_id">
-        <input type="hidden" value="{{ request.user.id }}" name="user_id">
     <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart" type="submit">
     <i class="fa fa-shopping-cart"></i>
     </button>
