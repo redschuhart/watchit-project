@@ -58,10 +58,10 @@ def logout(request):
 
 @login_required
 def profile(request):
-    user_data = User.objects.get(username=request.user)
+
     context = {
         'title': 'Профиль',
-        'user': user_data
+        'user': request.user
 
     }
 

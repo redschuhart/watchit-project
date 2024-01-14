@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
-# Create your models here.
 
 
 class ProductCategory(models.Model):
@@ -55,9 +54,10 @@ class Product(models.Model):
                                          )
 
     discount = models.PositiveIntegerField(blank=False, null=False, default=0,
-                                           validators=[MaxValueValidator(50, message='Скидка не может быть больше 100%')],
+                                           validators=[
+                                               MaxValueValidator(50, message='Скидка не может быть больше 100%')],
                                            verbose_name='Размер скидки в %'
-    )
+                                           )
     price = models.DecimalField(blank=False, null=False, max_digits=12,
                                 decimal_places=2, verbose_name='Цена'
                                 )
@@ -105,7 +105,3 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.product_name}'
-
-
-
-

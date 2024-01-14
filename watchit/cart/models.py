@@ -12,5 +12,8 @@ class ShoppingCart(models.Model):
                                    verbose_name='Товар')
     created = models.DateTimeField(auto_now_add=True)
 
+    def sum(self):
+        return self.quantity * self.product_id.price
+
     def __str__(self):
         return f'{self.user_id.username}|{self.product_id.product_name}|{self.quantity}'

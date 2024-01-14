@@ -28,6 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+# INTERNAL_IPS = ["127.0.0.1"]
 
 # Application definition
 
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'watchstore',
     'products',
     'users',
-    'cart'
+    'cart',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'watchit.urls'
@@ -138,3 +141,5 @@ LOGIN_URL = '/users/signin/'
 # Users model
 
 AUTH_USER_MODEL = 'users.User'
+
+

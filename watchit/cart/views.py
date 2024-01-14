@@ -8,10 +8,25 @@ from products.models import Product
 # Create your views here.
 @login_required
 def open_cart(request):
+    products = (ShoppingCart.objects.filter(user_id=request.user).select_related
+                ('product_id'))
     context = {
-        'title': 'Корзина'
+        'title': 'Корзина',
+        'products': products
     }
-    return render(request, template_name='cart/cart.html')
+    if products.exists():
+        total_sum = 0
+        for product in products:
+            total_sum += product.product_id.price * product.quantity
+        context['total'] = int(total_sum)
+
+        total_quantity = 0
+        for product in products:
+            total_quantity += product.quantity
+        context['total_quantity'] = total_quantity
+
+
+    return render(request, template_name='cart/cart.html', context=context)
 
 
 @login_required
